@@ -3,6 +3,7 @@ const helmet = require("helmet");
 const cors = require("cors");
 
 const cohortsRouter = require("../cohorts/router.js");
+const studentsRouter = require("../students/router.js");
 
 const server = express();
 
@@ -13,14 +14,8 @@ server.use(helmet());
 
 // routes
 
-server.use("/api/cohorts", (req, res) => {
-  res.json({ router: "cohorts" });
-});
-server.use("/api/students", (req, res) => {
-  res.json({ router: "students" });
-});
-
-
+server.use("/api/cohorts", cohortsRouter);
+server.use("/api/students", studentsRouter);
 
 server.get("/", (req, res) => {
   res.json({ api: "api running" });

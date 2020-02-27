@@ -1,0 +1,29 @@
+const express = require("express");
+const helmet = require("helmet");
+const cors = require("cors");
+
+const cohortsRouter = require("../cohorts/router.js");
+
+const server = express();
+
+// middleware
+server.use(express.json());
+server.use(cors());
+server.use(helmet());
+
+// routes
+
+server.use("/api/cohorts", (req, res) => {
+  res.json({ router: "cohorts" });
+});
+server.use("/api/students", (req, res) => {
+  res.json({ router: "students" });
+});
+
+
+
+server.get("/", (req, res) => {
+  res.json({ api: "api running" });
+});
+
+module.exports = server;

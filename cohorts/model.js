@@ -1,7 +1,10 @@
+const db = require("../database/connection.js");
+
+module.exports = {
+ find
+}
 
 
-const router = require('express').Router();
-
-router.get('/', (req, res) => {
- res.status(200).json({router: "cohorts"})
-})
+function find(){
+ return db("cohorts").select("id", "name")
+}

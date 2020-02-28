@@ -3,7 +3,7 @@ const Cohorts = require("./model.js");
 const router = require("express").Router();
 
 router.get("/", (req, res) => {
-  Cohorts.all()
+  Cohorts.find()
     .then(cohorts => {
       res.status(200).json(cohorts);
     })

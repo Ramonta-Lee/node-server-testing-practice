@@ -13,4 +13,16 @@ router.get("/", (req, res) => {
     });
 });
 
+router.post("/", (req, res) => {
+  let name = req.body;
+
+  Cohorts.add(name)
+    .then(saved => {
+      res.status(201).json(saved);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({ error: "Unable to post new cohort name" });
+    });
+});
 module.exports = router;

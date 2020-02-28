@@ -23,7 +23,7 @@ module.exports = {
 
   testing: {
     client: "pg",
-    connection: process.env.,
+    connection: process.env.DB_ENV,
     pool: {
       min: 2,
       max: 10
